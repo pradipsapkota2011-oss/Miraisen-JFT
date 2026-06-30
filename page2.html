@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JFT Mock Test</title>
+
+<style>
+body{margin:0;font-family:Arial;background:#fff}
+.top{height:52px;background:#050505;color:white;display:flex;justify-content:space-between;align-items:center;padding:0 15px}
+.timer{text-align:center}
+.finish{background:#ffe2a0;color:#111;padding:10px 25px;border:0;border-radius:4px;font-weight:bold}
+.green{background:#4f861d;color:white;height:19px;font-size:13px;display:flex;justify-content:space-between;padding:2px 8px}
+.main{display:grid;grid-template-columns:40px 60px 1fr;height:calc(100vh - 115px)}
+.sections{background:#f7f7f7;border-right:1px solid #ccc}
+.sec{height:95px;font-size:12px;color:#555;text-align:center;padding-top:7px;border-bottom:1px solid #ddd}
+.sec:before{content:"";display:block;width:9px;height:74px;background:#6aa72b;border-radius:8px;margin:5px auto}
+.palette{padding:8px}
+.qbtn{background:#6aa72b;color:white;width:36px;height:20px;margin:6px;border-radius:3px;text-align:center;line-height:20px;font-weight:bold;font-size:12px}
+.qbtn.active{clip-path:polygon(0 0,80% 0,100% 50%,80% 100%,0 100%)}
+.content{padding:18px 35px}
+.inst{background:#eaf8ff;font-size:23px;padding:10px 15px;width:90%}
+.lang button{display:block;margin:6px 0;background:white;border:1px solid #aaa;padding:3px 8px;cursor:pointer}
+.image{margin:35px 0 25px 70px}
+.option{width:75%;border:1.5px solid #111;padding:12px;margin:16px 0;font-weight:bold;cursor:pointer;background:white}
+.option:hover{background:#f2f2f2}
+.option.selected{background:#b7d88d;border:2px solid green}
+.footer{height:43px;background:#050505;border-top:4px solid #4f861d;display:flex;justify-content:space-between;align-items:center;padding:0 12px}
+.footer button{background:#6aa72b;color:white;border:0;padding:10px 18px;font-weight:bold;border-radius:4px}
+.icons{color:white;font-size:25px}
+
+.modal{
+  display:none;
+  position:fixed;
+  top:140px;
+  left:50%;
+  transform:translateX(-50%);
+  width:610px;
+  background:white;
+  border:2px solid black;
+  z-index:9999;
+  box-shadow:0 0 18px rgba(0,0,0,.45);
+}
+.modal-head{
+  background:black;
+  color:white;
+  padding:7px 10px;
+  font-weight:bold;
+}
+.close{
+  float:right;
+  cursor:pointer;
+  font-size:16px;
+}
+.modal table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:12px;
+}
+.modal td{
+  border:1px solid #555;
+  padding:12px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="top">
+  <div><b>Question: 1</b><br><b>Section: Script and Vocabulary</b></div>
+  <div class="timer">◴ Section Time Remaining<br><b id="time">60:00</b></div>
+  <button class="finish">Finish Section</button>
+</div>
+
+<div class="green">
+  <span>Test: Japan Foundation Test for Basic Japanese</span>
+  <span>Candidate: Pradip Sensei</span>
+</div>
+
+<div class="main">
+  <div class="sections">
+    <div class="sec">Scri...</div>
+    <div class="sec">Co...</div>
+    <div class="sec">List...</div>
+    <div class="sec">Rea...</div>
+  </div>
+
+  <div class="palette">
+    <div class="qbtn active">1</div>
+    <div class="qbtn">2</div>
+    <div class="qbtn">3</div>
+    <div class="qbtn">4</div>
+  </div>
+
+  <div class="content">
+    <div class="inst">
+      Look at the illustration and choose the correct word.
+    </div>
+
+    <div class="lang">
+      <button onclick="openLanguage1()">🖼 Your Language 1 ↗</button>
+    </div>
+
+    <div class="image">
+      <img src="Q2.png" width="130" height="120" alt="">
+    </div>
+
+    <div class="option" onclick="selectAnswer(this)">押します</div>
+    <div class="option" onclick="selectAnswer(this)">触ります</div>
+    <div class="option" onclick="selectAnswer(this)">引きます</div>
+  </div>
+</div>
+
+<div class="footer">
+  <div class="icons">⚙ ▦</div>
+  <div>
+    <button>⚑</button>
+    <button>‹ Back</button>
+    <button>Next ›</button>
+  </div>
+</div>
+
+<div id="langModal1" class="modal">
+  <div class="modal-head">
+    Your Language 1
+    <span class="close" onclick="closeLanguage1()">×</span>
+  </div>
+
+  <table>
+    <tr>
+      <td><b>English</b></td>
+      <td>Look at the illustration and choose the correct word.</td>
+    </tr>
+    <tr>
+      <td><b>Nepali</b></td>
+      <td>चित्र हेरेर सही शब्द छान्नुहोस्।</td>
+    </tr>
+  </table>
+</div>
+
+<script src="questions.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
